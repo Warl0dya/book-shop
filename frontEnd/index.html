@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хитрий Китаєць</title>
+    <link rel="stylesheet" href="nullify.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts/key_gen.js" defer></script>
+    <script src="scripts/request.js" defer></script>
+    <script src="scripts/upload.js" defer></script>
+    <script src="scripts/page_navigator.js" defer></script>
+    <script src="scripts/user_controller.js" defer></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="title">
+            <img src="" class="logo">
+            <div class="site-name">
+                Книжковий магазин<br>"Хитрий Китаєць"
+            </div>
+        </div>
+        <div class="navbar">
+            <div class="link" onclick="navigate('main-page')">Головна</div>
+            <div class="link" onclick="navigate('new-items')">Новинки</div>
+            <div class="link" onclick="navigate('catalogue')">Каталог</div>
+            <div class="link" onclick="navigate('contacts')">Контакти і доставка</div>
+        </div>
+        <div class="user-bar">
+            <div class="item">
+                <img src="" alt="" srcset="">
+                <div class="name" onclick="navigate('whish-list')">Список бажань</div>
+            </div>
+            <div class="item" id="register">
+                <img src="" alt="" srcset="">
+                <div class="name" onclick="navigate('register')">Реєстрація</div>
+            </div>
+            <div class="item" id="login">
+                <img src="" alt="" srcset="">
+                <div class="name" onclick="navigate('login')">Увійти</div>
+            </div>
+            <div class="item" id="user-account">
+                <img src="" alt="" srcset="">
+                <div class="name" onclick="navigate('user-account')">аккаунт</div>
+            </div>
+            <div class="item">
+                <img src="" alt="" srcset="">
+                <div class="name" onclick="navigate('bucket')">Кошик</div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main-page" style="display: none;">
+            головна
+        </div>
+
+        <div class="new-items" style="display: none;">
+            новинки
+        </div>
+
+        <div class="catalogue" style="display: none;">
+            каталог
+        </div>
+
+        <div class="contacts" style="display: none;">
+            контакти
+        </div>
+
+        <div class="whish-list" style="display: none;">
+            список бажань
+        </div>
+
+        <div class="register" style="display: none;">
+            <div class="reg_block">
+                <div class="label">Реєстрація</div>
+                <form id="registerForm" onsubmit="register(event)">
+                    <div>
+                        <label for="email">Ім'я:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div>
+                        <label for="email">Пошта:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="password">Пароль:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div>
+                        <label for="confirmPassword">Повторіть пароль:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <button type="submit">зареєструватись</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="login" style="display: none;">
+            логін
+        </div>
+
+        <div class="user-account" style="display: none;">
+            аккаунт
+        </div>
+
+        <div class="bucket" style="display: none;">
+            відро(кошик)
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <div class="filetest">
+        <h1>Upload a File</h1>
+        <form onsubmit="uploadFile(event)">
+            <label for="file">Choose file:</label>
+            <input type="file" id="file" name="file">
+            <label for="fileCategory">Choose file category:</label>
+            <select id="fileCategory" name="fileCategory">
+                <option value="item">Item</option>
+                <option value="user_avatar">User Avatar</option>
+            </select>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+
+</html>
