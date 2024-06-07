@@ -7,9 +7,11 @@ module.exports = function (args) {
         switch (args.type) {
             case 'register': {
                 const arg = args.arguments
+                console.log(arg)
                 let uid = await new Promise(resolve => {
                     db.get(`SELECT MAX(id) AS max_value FROM users`, (err, row) => {
                         if (err) {
+                            console.log(err)
                             resolve({
                                 result: 'error',
                                 message: 'Помилка запиту!'
@@ -27,9 +29,37 @@ module.exports = function (args) {
                     return
                 }
 
+                const check_login = await new Promise(resolve => {
+                    db.get(`SELECT login FROM users WHERE login = "${arg.email}"`, (err, row) => {
+                        if (err) {
+                            console.log(err)
+                            resolve({
+                                result: 'error',
+                                message: 'Помилка запиту!'
+                            })
+                        } else {
+                            resolve(row)
+                        }
+                    })
+                })
+                if (check_login != undefined)
+                    if (check_login.result == 'error') {
+                        resolve(check_login)
+                        return
+                    }
+
+                if (check_login) {
+                    resolve({
+                        result: 'error',
+                        message: 'Пошта вже зайнята!'
+                    })
+                    return
+                }
+
                 db.run(`INSERT INTO users('id','login','password','name','money','access_level','private_key','user_data')
-                VALUES('${uid}','${arg.email}','${arg.password}','${arg.name}',${0},'${'user'}','${''}','${JSON.stringify({ basket: [], whishlist: [], favs: [] })}')`, (err) => {
+                VALUES('${uid}','${arg.email}','${arg.password}','${arg.name}',${0},'${1}','${''}','${JSON.stringify({ basket: [], whishlist: [], favs: [] })}')`, (err) => {
                     if (err) {
+                        console.log(err)
                         resolve({
                             result: 'error',
                             message: 'Помилка реєстрації!'
@@ -47,6 +77,7 @@ module.exports = function (args) {
                 const get_user = await new Promise(resolve => {
                     db.get(`SELECT * FROM users WHERE "login" = "${arg.email}"`, (err, row) => {
                         if (err) {
+                            console.log(err)
                             resolve({
                                 result: 'error',
                                 message: 'Помилка запиту!'

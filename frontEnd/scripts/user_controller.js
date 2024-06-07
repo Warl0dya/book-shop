@@ -1,23 +1,22 @@
-function check_user_status_bar(){
+function check_user_status_bar() {
     const ubar = document.querySelector('.user-bar')
-    
+
     const uacc = ubar.querySelector('#user-account')
     const reg = ubar.querySelector('#register')
     const log = ubar.querySelector('#login')
 
-    if(sessionStorage.getItem('userData')){
-        uacc.style.display='unset'
-        reg.style.display='none'
-        log.style.display='none'
-    }else{
-        uacc.style.display='none'
-        reg.style.display='unset'
-        log.style.display='unset'
+    if (sessionStorage.getItem('userData')) {
+        uacc.style.display = 'unset'
+        reg.style.display = 'none'
+        log.style.display = 'none'
+    } else {
+        uacc.style.display = 'none'
+        reg.style.display = 'unset'
+        log.style.display = 'unset'
     }
 }
 
 function append_login_data(data) {
-    console.log(data)
     const perm_data = JSON.parse(data.user_data)
     for (const dline in perm_data) {
         localStorage.setItem(dline, perm_data[dline])
@@ -40,12 +39,14 @@ function auto_user_control() {
     }
     function check_user_key() {
         const key = localStorage.getItem('userKey')
-        return key ? true : false
+        if (!key) return false
+        if (key.length != 32) return false
+        return true
     }
     async function try_user_auto_login() {
         const resp = await request('/api/user_interact', 'auto_login', { user_key: localStorage.getItem('userKey') })
         console.log(resp.message)
-        if (resp.result = 'success') {
+        if (resp.result == 'success') {
             append_login_data(resp.user_data)
         }
     }
@@ -83,6 +84,5 @@ async function login(event) {
 
     const resp = await request('/api/user_interact', 'login', login_data)
     alert(resp.message)
-    console.log(resp.user_data)
     if (resp.result == 'success') append_login_data(resp.user_data)
 }
