@@ -48,16 +48,119 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        .register{
-            .reg_block{
+
+        .register {
+            .reg_block {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                border: 0.2em #fff;
+                border: 0.2em solid #74cbd8;
                 background-color: aliceblue;
                 border-radius: 1em;
-                padding: 1em;
+                padding: 2em 1em;
+                gap: 1.5em;
+
+                #name,
+                #email,
+                #password,
+                #confirmPassword {
+                    width: 20em;
+                    background-color: #acf4ff;
+                    border: none;
+                    border-bottom: 0.2em solid #000;
+                }
+
+                #registerForm {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    flex-wrap: nowrap;
+                    gap: 0.5em;
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 0.2em;
+                    }
+
+                    button {
+                        background-color: #acf4ff;
+                        border: none;
+                        border-bottom: 0.2em solid black;
+                        font-family: 'Bahnschrift', sans-serif;
+
+                        &:active {
+                            background-color: blueviolet;
+                            border-bottom-color: #00F;
+                        }
+
+                        &:hover {
+                            background-color: rgb(144, 71, 213);
+                            border-bottom-color: #00F;
+                            transition: 650ms;
+                        }
+                    }
+                }
+            }
+        }
+
+        .login {
+            .login_block {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border: 0.2em solid #74cbd8;
+                background-color: aliceblue;
+                border-radius: 1em;
+                padding: 2em 1em;
+                gap: 1.5em;
+
+                #name,
+                #email,
+                #password,
+                #confirmPassword {
+                    width: 20em;
+                    background-color: #acf4ff;
+                    border: none;
+                    border-bottom: 0.2em solid #000;
+                }
+
+                #login_form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    flex-wrap: nowrap;
+                    gap: 0.5em;
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 0.2em;
+                    }
+
+                    button {
+                        background-color: #acf4ff;
+                        border: none;
+                        border-bottom: 0.2em solid black;
+                        font-family: 'Bahnschrift', sans-serif;
+
+                        &:active {
+                            background-color: blueviolet;
+                            border-bottom-color: #00F;
+                        }
+                        &:hover {
+                            background-color: rgb(144, 71, 213);
+                            border-bottom-color: #00F;
+                            transition: 650ms;
+                        }
+                    }
+                }
             }
         }
     }

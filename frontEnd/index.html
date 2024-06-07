@@ -30,22 +30,26 @@
             <div class="link" onclick="navigate('contacts')">Контакти і доставка</div>
         </div>
         <div class="user-bar">
+            <div class="item" id="user-account" style="display: none;">
+                <img src="" alt="" srcset="">
+                <div class="name" onclick="navigate('user-account')">Аккаунт</div>
+            </div>
+
             <div class="item">
                 <img src="" alt="" srcset="">
                 <div class="name" onclick="navigate('whish-list')">Список бажань</div>
             </div>
-            <div class="item" id="register">
+
+            <div class="item" id="register" style="display: none;">
                 <img src="" alt="" srcset="">
                 <div class="name" onclick="navigate('register')">Реєстрація</div>
             </div>
-            <div class="item" id="login">
+
+            <div class="item" id="login" style="display: none;">
                 <img src="" alt="" srcset="">
                 <div class="name" onclick="navigate('login')">Увійти</div>
             </div>
-            <div class="item" id="user-account">
-                <img src="" alt="" srcset="">
-                <div class="name" onclick="navigate('user-account')">аккаунт</div>
-            </div>
+
             <div class="item">
                 <img src="" alt="" srcset="">
                 <div class="name" onclick="navigate('bucket')">Кошик</div>
@@ -93,13 +97,26 @@
                         <label for="confirmPassword">Повторіть пароль:</label>
                         <input type="password" id="confirmPassword" name="confirmPassword" required>
                     </div>
-                    <button type="submit">зареєструватись</button>
+                    <button type="submit">Зареєструватись</button>
                 </form>
             </div>
         </div>
 
         <div class="login" style="display: none;">
-            логін
+            <div class="login_block">
+                <div class="label">Увійти</div>
+                <form id="login_form" onsubmit="login(event)">
+                    <div>
+                        <label for="email">Пошта:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="password">Пароль:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Увійти</button>
+                </form>
+            </div>
         </div>
 
         <div class="user-account" style="display: none;">
