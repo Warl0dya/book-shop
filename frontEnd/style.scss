@@ -48,7 +48,148 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-
+        .catalogue {
+            display: flex;
+            align-items: stretch;
+            .container {
+                display: flex;
+                width: 90%;
+                max-width: 1200px;
+                margin: 20px auto;
+              }
+              
+              .sidebar {
+                width: 25%;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin-right: 20px;
+              }
+              
+              .filter-section {
+                margin-bottom: 20px;
+              }
+              
+              .filter-section h3 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+              }
+              
+              .filter-section ul {
+                list-style-type: none;
+                padding: 0;
+              }
+              
+              .filter-section ul li {
+                margin-bottom: 10px;
+              }
+              
+              .main-content {
+                width: 75%;
+              }
+              
+              .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+              }
+              
+              .header h1 {
+                font-size: 2rem;
+                margin: 0;
+              }
+              
+              .header p {
+                margin: 0;
+              }
+              
+              .sort-options {
+                display: flex;
+                align-items: center;
+              }
+              
+              .sort-options label {
+                margin-right: 10px;
+              }
+              
+              .sort-options select {
+                margin-right: 20px;
+              }
+              
+              .view-options button {
+                border: none;
+                background: none;
+                cursor: pointer;
+                padding: 10px;
+              }
+              
+              .view-options .grid-view.active {
+                background-color: #ddd;
+              }
+              
+              .products {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+              }
+              
+              .product-card {
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                width: calc(33.333% - 20px);
+                position: relative;
+              }
+              
+              .product-image {
+                width: 100%;
+                height: auto;
+                border-bottom: 1px solid #ddd;
+              }
+              
+              .product-title {
+                font-size: 1.2rem;
+                margin: 15px 0;
+              }
+              
+              .buttons {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                padding: 10px;
+              }
+              
+              .buy-btn, .wishlist-btn {
+                background-color: #007bff;
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+              }
+              
+              .wishlist-btn {
+                background-color: #f0f0f0;
+                color: #333;
+              }
+              
+              .buy-btn:hover {
+                background-color: #0056b3;
+              }
+              
+              .wishlist-btn:hover {
+                background-color: #ddd;
+              }
+        }
         .register {
             .reg_block {
                 display: flex;
@@ -164,13 +305,13 @@ body {
             }
         }
     }
-
+        }
     footer {
         height: 3em;
         background-color: #d0d0d0;
     }
 
-}
+
 
 .filetest {
     display: none;
