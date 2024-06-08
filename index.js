@@ -53,16 +53,23 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post('/api/upload', upload.single('file'), (req, res) => {
-    console.log(req.body)
     res.send({ fileName: req.file.filename });
 });
 
+app.use(`/admin`, sassMiddleware({
+    src: path.join(__dirname, '/admin_panel'),
+    debug: false,
+    outputStyle: 'compressed',
+    prefix: '/',
+    response: true,
+    force: true,
+}));
+app.use(`/admin`, express.static(path.join(__dirname, '/admin_panel')))
 app.get(`/admin`, async (req, res) => {
     const indexPath = path.join(__dirname, '/admin_panel/index.html')
     res.sendFile(indexPath);
 });
 
-app.use(`/admin`, express.static(path.join(__dirname, '/admin_panel')))
 
 app.listen(port, () => {
     console.log(`Сервер запущено на порті ${port}`)

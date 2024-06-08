@@ -15,8 +15,6 @@ function navigate(page) {
             element.style.display = 'none';
         }
     });
-
-
 }
 
 navigate('main-page')

@@ -4,12 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Хитрий Китаєць</title>
+    <title>Адмін панель "Хитрого Китайцю"</title>
     <link rel="stylesheet" href="nullify.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts/request.js" defer></script>
+    <script src="scripts/upload.js" defer></script>
+    <script src="scripts/add_item.js" defer></script>
 </head>
 
 <body>
-секс
+    <div class="add_item">
+        <div class="label">Додати предмет</div>
+        <div class="add_block">
+            <form onsubmit="add_item(event)">
+                <input type="text" id="name" placeholder="Назва">
+                <input type="text" id="author" placeholder="Автор">
+                <textarea name="" id="description" placeholder="Опис"></textarea>
+                <textarea name="" id="tags" placeholder="Теги(через пробіл)"></textarea>
+                <input type="number" name="" id="cost" placeholder="Ціна">
+                <input type="number" name="" id="quantity" placeholder="Кількість">
+                <input type="file" id="file_zone" accept="image/*">
+                <input type="submit" value="Відправити" onclick="">
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

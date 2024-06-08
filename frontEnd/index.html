@@ -2,277 +2,367 @@
 <html lang="ua">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Хитрий Китаєць</title>
-    <link rel="stylesheet" href="nullify.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="scripts/key_gen.js" defer></script>
-    <script src="scripts/request.js" defer></script>
-    <script src="scripts/upload.js" defer></script>
-    <script src="scripts/page_navigator.js" defer></script>
-    <script src="scripts/user_controller.js" defer></script>
-    <script src="scripts/user_profile.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Хитрий Китаєць</title>
+  <link rel="stylesheet" href="nullify.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts/key_gen.js" defer></script>
+  <script src="scripts/request.js" defer></script>
+  <script src="scripts/page_navigator.js" defer></script>
+  <script src="scripts/user_controller.js" defer></script>
+  <script src="scripts/user_profile.js" defer></script>
 
 </head>
 
 <body>
-    <header>
-        <div class="title">
-            <img src="" class="logo">
-            <div class="site-name">
-                Книжковий магазин<br>"Хитрий Китаєць"
-            </div>
-        </div>
-        <div class="navbar">
-            <div class="link" onclick="navigate('main-page')">Головна</div>
-            <div class="link" onclick="navigate('new-items')">Новинки</div>
-            <div class="link" onclick="navigate('catalogue')">Каталог</div>
-            <div class="link" onclick="navigate('contacts')">Контакти і доставка</div>
-        </div>
-        <div class="user-bar">
-            <div class="item" id="user-account" style="display: none;">
-                <img src="" alt="" srcset="">
-                <div class="name" onclick="navigate('user-account')">Аккаунт</div>
-            </div>
-
-            <div class="item">
-                <img src="" alt="" srcset="">
-                <div class="name" onclick="navigate('whish-list')">Список бажань</div>
-            </div>
-
-            <div class="item" id="register" style="display: none;">
-                <img src="" alt="" srcset="">
-                <div class="name" onclick="navigate('register')">Реєстрація</div>
-            </div>
-
-            <div class="item" id="login" style="display: none;">
-                <img src="" alt="" srcset="">
-                <div class="name" onclick="navigate('login')">Увійти</div>
-            </div>
-
-            <div class="item">
-                <img src="" alt="" srcset="">
-                <div class="name" onclick="navigate('bucket')">Кошик</div>
-            </div>
-        </div>
-    </header>
-    <main>
-        <div class="main-page" style="display: none;">
-            головна
-        </div>
-
-        <div class="new-items" style="display: none;">
-            новинки
-        </div>
-
-        <div class="catalogue" style="display: none;">
-            <div class="container">
-                <div class="sidebar">
-                  <h2>Фільтри</h2>
-                  <div class="filter-section">
-                    <h3>Ціна</h3>
-                    <input type="range" min="0" max="2500" step="10">
-                  </div>
-                  <div class="filter-section">
-                    <h3>Видавництво</h3>
-                    <ul>
-                      <li><input type="checkbox"> Азбука</li>
-                      <li><input type="checkbox"> Комильфо</li>
-                      <li><input type="checkbox"> Alt Graph</li>
-                      <li><input type="checkbox"> Bubble</li>
-                      <li><input type="checkbox"> Palma Press</li>
-                    </ul>
-                  </div>
-                  <div class="filter-section">
-                    <h3>Мова</h3>
-                    <ul>
-                      <li><input type="checkbox"> Українська</li>
-                      <li><input type="checkbox"> Англійська</li>
-                    </ul>
-                  </div>
-                  <div class="filter-section">
-                    <h3>Жанр</h3>
-                    <ul>
-                      <li><input type="checkbox"> Авторський комікс</li>
-                      <li><input type="checkbox"> Біографія</li>
-                      <li><input type="checkbox"> Бойовик</li>
-                      <li><input type="checkbox"> Детектив</li>
-                      <li><input type="checkbox"> Для дорослих</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="main-content">
-                  <div class="header">
-                    <h1>МАНҐА</h1>
-                    <p>ЗНАЙДЕНО ТОВАРІВ: мало</p>
-                    <div class="sort-options">
-                      <label for="sort">Сортування:</label>
-                      <select id="sort">
-                        <option value="date">Дата</option>
-                        <option value="price">Ціна</option>
-                        <option value="popularity">Популярність</option>
-                      </select>
-                      <div class="view-options">
-                        <button class="grid-view active"></button>
-                        <button class="list-view"></button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="products">
-                    <div class="product-card">
-                      <img src="storage\image_storage\naruto.jpg" alt="Book Cover" class="product-image">
-                      <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-                      <p class="price">200 грн</p>
-                      <div class="buttons">
-                        <button class="buy-btn">КУПИТИ</button>
-                        <button class="wishlist-btn">&#9825;</button>
-                      </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="storage\image_storage\naruto.jpg" alt="Book Cover" class="product-image">
-                        <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-                        <p class="price">200 грн</p>
-                        <div class="buttons">
-                          <button class="buy-btn">КУПИТИ</button>
-                          <button class="wishlist-btn">&#9825;</button>
-                        </div>
-                      </div>
-                      <div class="product-card">
-                        <img src="storage\image_storage\naruto.jpg" alt="Book Cover" class="product-image">
-                        <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-                        <p class="price">200 грн</p>
-                        <div class="buttons">
-                          <button class="buy-btn">КУПИТИ</button>
-                          <button class="wishlist-btn">&#9825;</button>
-                        </div>
-                      </div>
-                      <div class="product-card">
-                        <img src="storage\image_storage\naruto.jpg" alt="Book Cover" class="product-image">
-                        <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-                        <p class="price">200 грн</p>
-                        <div class="buttons">
-                          <button class="buy-btn">КУПИТИ</button>
-                          <button class="wishlist-btn">&#9825;</button>
-                        </div>
-                      </div>
-                      <div class="product-card">
-                        <img src="storage\image_storage\naruto.jpg" alt="Book Cover" class="product-image">
-                        <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-                        <p class="price">200 грн</p>
-                        <div class="buttons">
-                          <button class="buy-btn">КУПИТИ</button>
-                          <button class="wishlist-btn">&#9825;</button>
-                        </div>
-                      </div>
-                      <div class="product-card">
-                        <img src="storage\image_storage\naruto.jpg" alt="Book Cover" class="product-image">
-                        <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-                        <p class="price">200 грн</p>
-                        <div class="buttons">
-                          <button class="buy-btn">КУПИТИ</button>
-                          <button class="wishlist-btn">&#9825;</button>
-                        </div>
-                      </div>
-                      <div class="product-card">
-                        <img src="storage\image_storage\naruto.jpg" alt="naruto" class="product-image">
-                        <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-                        <p class="price">200 грн</p>
-                        <div class="buttons">
-                          <button class="buy-btn">КУПИТИ</button>
-                          <button class="wishlist-btn">&#9825;</button>
-                        </div>
-                      </div>
-
-                  </div>
-                </div>
-              </div>
-        </div>
-
-        <div class="contacts" style="display: none;">
-            контакти
-        </div>
-
-        <div class="whish-list" style="display: none;">
-            список бажань
-        </div>
-
-        <!-- Вікно реєстрації -->
-        <div class="register" style="display: none;">
-            <div class="reg_block">
-                <div class="label">Реєстрація</div>
-                <form id="registerForm" onsubmit="register(event)">
-                    <div>
-                        <label for="email">Ім'я:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div>
-                        <label for="email">Пошта:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div>
-                        <label for="password">Пароль:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <div>
-                        <label for="confirmPassword">Повторіть пароль:</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" required>
-                    </div>
-                    <button type="submit">Зареєструватись</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Вікно логіну -->
-        <div class="login" style="display: none;">
-            <div class="login_block">
-                <div class="label">Увійти</div>
-                <form id="login_form" onsubmit="login(event)">
-                    <div>
-                        <label for="email">Пошта:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div>
-                        <label for="password">Пароль:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <button type="submit">Увійти</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Вікно аккаунту -->
-        <div class="user-account" style="display: none;">
-            <div class="user-account-block">
-                <div class="user-card">
-                    <div class="id-uname"></div>
-                    <div class="email"></div>
-                    <div class="money"></div>
-                    <div class="acc-level"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bucket" style="display: none;">
-            відро(кошик)
-        </div>
-    </main>
-    <footer>
-
-    </footer>
-    <div class="filetest">
-        <h1>Upload a File</h1>
-        <form onsubmit="uploadFile(event)">
-            <label for="file">Choose file:</label>
-            <input type="file" id="file" name="file">
-            <label for="fileCategory">Choose file category:</label>
-            <select id="fileCategory" name="fileCategory">
-                <option value="item">Item</option>
-                <option value="user_avatar">User Avatar</option>
-            </select>
-            <button type="submit">Upload</button>
-        </form>
+  <header>
+    <div class="title">
+      <img src="" class="logo">
+      <div class="site-name">
+        Книжковий магазин<br>"Хитрий Китаєць"
+      </div>
     </div>
+    <div class="navbar">
+      <div class="link" onclick="navigate('main-page')">Головна</div>
+      <div class="link" onclick="navigate('new-items')">Новинки</div>
+      <div class="link" onclick="navigate('catalogue')">Каталог</div>
+      <div class="link" onclick="navigate('contacts')">Контакти і доставка</div>
+    </div>
+    <div class="user-bar">
+      <div class="item" id="user-account" style="display: none;">
+        <img src="" alt="" srcset="">
+        <div class="name" onclick="navigate('user-account')">Аккаунт</div>
+      </div>
+
+      <div class="item">
+        <img src="" alt="" srcset="">
+        <div class="name" onclick="navigate('whish-list')">Список бажань</div>
+      </div>
+
+      <div class="item" id="register" style="display: none;">
+        <img src="" alt="" srcset="">
+        <div class="name" onclick="navigate('register')">Реєстрація</div>
+      </div>
+
+      <div class="item" id="login" style="display: none;">
+        <img src="" alt="" srcset="">
+        <div class="name" onclick="navigate('login')">Увійти</div>
+      </div>
+
+      <div class="item">
+        <img src="" alt="" srcset="">
+        <div class="name" onclick="navigate('bucket')">Кошик</div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="main-page" style="display: none;">
+      головна
+    </div>
+
+    <div class="new-items" style="display: none;">
+    <div class="main-content">
+      <div class="header">
+        <h1>НОВЕНЬКА МАНҐА - ТІЛЬКИ З РУЧОК АВТОРІВ</h1>
+        <p>ЗНАЙДЕНО ТОВАРІВ: мало</p>
+        <div class="sort-options">
+          <label for="sort">Сортування:</label>
+          <select id="sort">
+            <option value="date">Дата</option>
+            <option value="price">Ціна</option>
+            <option value="popularity">Популярність</option>
+          </select>
+          <div class="view-options">
+            <button class="grid-view active"></button>
+            <button class="list-view"></button>
+          </div>
+        </div>
+      </div>
+      <div class="products">
+        <div class="product-card">
+            <span class="new">new</span>
+          <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+          <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
+          <p class="price">200 грн</p>
+          <div class="buttons">
+            <button class="buy-btn">КУПИТИ</button>
+            <button class="wishlist-btn">&#9825;</button>
+          </div>
+        </div>
+        <div class="product-card">
+            <span class="new">new</span>
+            <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+            <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
+            <p class="price">200 грн</p>
+            <div class="buttons">
+              <button class="buy-btn">КУПИТИ</button>
+              <button class="wishlist-btn">&#9825;</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <span class="new">new</span>
+            <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+            <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
+            <p class="price">200 грн</p>
+            <div class="buttons">
+              <button class="buy-btn">КУПИТИ</button>
+              <button class="wishlist-btn">&#9825;</button>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
+
+    <div class="catalogue" style="display: none;">
+      <div class="container">
+        <div class="sidebar">
+          <h2>Фільтри</h2>
+          <div class="filter-section">
+            <h3>Ціна</h3>
+            <div class="price-range">
+              <label for="price-min">від</label>
+              <input type="number" id="price-min" name="price-min" min="0" value="0">
+              <label for="price-max">до</label>
+              <input type="number" id="price-max" name="price-max" max="1000" value="1000">
+            </div>
+          </div>
+          <div class="filter-section">
+            <h3>Видавництво</h3>
+            <ul>
+              <li><input type="checkbox"> AA</li>
+              <li><input type="checkbox"> AB</li>
+              <li><input type="checkbox"> AC</li>
+              <li><input type="checkbox"> AG</li>
+              <li><input type="checkbox"> AE</li>
+            </ul>
+          </div>
+          <div class="filter-section">
+            <h3>Мова</h3>
+            <ul>
+              <li><input type="checkbox"> Українська</li>
+              <li><input type="checkbox"> Англійська</li>
+            </ul>
+          </div>
+          <div class="filter-section">
+            <h3>Жанр</h3>
+            <ul>
+              <li><input type="checkbox"> Авторський комікс</li>
+              <li><input type="checkbox"> Біографія</li>
+              <li><input type="checkbox"> Бойовик</li>
+              <li><input type="checkbox"> Детектив</li>
+              <li><input type="checkbox"> Для дорослих</li>
+            </ul>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="header">
+            <h1>МАНҐА</h1>
+            <p>ЗНАЙДЕНО ТОВАРІВ: мало</p>
+            <div class="sort-options">
+              <label for="sort">Сортування:</label>
+              <select id="sort">
+                <option value="date">Дата</option>
+                <option value="price">Ціна</option>
+                <option value="popularity">Популярність</option>
+              </select>
+              <div class="view-options">
+                <button class="grid-view active"></button>
+                <button class="list-view"></button>
+              </div>
+            </div>
+          </div>
+          <div class="products">
+            <div class="product-card">
+              <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
+              <p class="price">200 грн</p>
+              <div class="buttons">
+                <button class="buy-btn">КУПИТИ</button>
+                <button class="wishlist-btn">&#9825;</button>
+              </div>
+            </div>
+            <div class="product-card">
+              <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
+              <p class="price">200 грн</p>
+              <div class="buttons">
+                <button class="buy-btn">КУПИТИ</button>
+                <button class="wishlist-btn">&#9825;</button>
+              </div>
+            </div>
+            <div class="product-card">
+              <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
+              <p class="price">200 грн</p>
+              <div class="buttons">
+                <button class="buy-btn">КУПИТИ</button>
+                <button class="wishlist-btn">&#9825;</button>
+              </div>
+            </div>
+            <div class="product-card">
+              <img src="s/images/naruto.jpg" alt="Book Cover" class="product-image">
+              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
+              <p class="price">200 грн</p>
+              <div class="buttons">
+                <button class="buy-btn">КУПИТИ</button>
+                <button class="wishlist-btn">&#9825;</button>
+              </div>
+            </div>
+            <div class="product-card">
+              <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
+              <p class="price">200 грн</p>
+              <div class="buttons">
+                <button class="buy-btn">КУПИТИ</button>
+                <button class="wishlist-btn">&#9825;</button>
+              </div>
+            </div>
+            <div class="product-card">
+              <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
+              <p class="price">200 грн</p>
+              <div class="buttons">
+                <button class="buy-btn">КУПИТИ</button>
+                <button class="wishlist-btn">&#9825;</button>
+              </div>
+            </div>
+            <div class="product-card">
+              <img src="/images/naruto.jpg" alt="naruto" class="product-image">
+              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
+              <p class="price">200 грн</p>
+              <div class="buttons">
+                <button class="buy-btn">КУПИТИ</button>
+                <button class="wishlist-btn">&#9825;</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contacts" style="display: none;">
+      <h1>Контакти та Доставка</h1>
+      <div class="contact_info">
+        <h1>Після оформлення замовлення на сайті ми зіберемо ваше замовлення і зв'яжемось з вами протягом 1-3 годин у
+          робочий час (з 10:00 до 19:00), залежно від завантаженості.
+
+          ДОСТАВКА ТОВАРУ
+          По Україні ми відправляємо Новою Поштою. В середньому, Нова Пошта доставляє вантажі по Україні протягом 1-2
+          днів. Вартість доставки можна уточнити в онлайн-калькуляторі. Для отримання вам знадобиться посвідчення
+          особи (паспорт або водійські права) і номер декларації, який ми повідомимо вам після відправки.
+
+          ОПЛАТИТИ МОЖНА НАСТУПНИМИ СПОСОБАМИ:
+          Накладений платіж - при отриманні посилки на складі Нової Пошти ви перевіряєте комплектність, стан товару і
+          тільки потім оплачуєте його. Послуга зворотного платежу коштує 20 гривень + 2% від суми накладного платежу,
+          не враховуючи доставку.
+          Передоплата на карту - у разі оплати замовлення на карту, вам не потрібно оплачувати послугу зворотного
+          платежу, що зменшить вартість доставки майже вдвічі.
+          Оплата карткою ОНЛАЙН LiqPay або WayForPay - вибравши цей варіант, ви будете перенаправлені на сторінку
+          підтвердження замовлення, де зможете ввести дані своєї картки та оплатити замовлення онлайн.
+          ОТРИМАННЯ ЗАМОВЛЕННЯ
+          Важливо: під час отримання перевірте, будь ласка, стан упаковки і механічні пошкодження. У разі виявлення
+          проблем з посилкою ви маєте право відмовитися від неї, а також ОБОВ'ЯЗКОВО необхідно скласти акт
+          (претензію). У разі відсутності акта пошкодження товару транспортною компанією, претензію покупця не можна
+          задовольнити.
+
+          ПОВЕРНЕННЯ ТА ОБМІН
+          ДЕ І ЯК МОЖНА ЗДІЙСНИТИ ОБМІН АБО ПОВЕРНЕННЯ?
+          Якщо ви отримали товар неналежної якості або з заводським дефектом, а також бажаєте здійснити
+          Повернення/обмін товару належної якості, ми можемо замінити його на інший примірник або повернути кошти
+          будь-яким зручним для вас способом, протягом 14 днів з моменту покупки, не враховуючи день покупки.
+
+          Ви можете надіслати товар назад за допомогою служби доставки і обов'язково повідомити нам номер транспортної
+          декларації та реквізити для зарахування грошей за повернення. Звертаємо вашу увагу, що товар повинен бути
+          надійно упакований. Вартість доставки та упаковки товару оплачується за рахунок покупця.
+
+          ЯК ДОВГО ЧЕКАТИ ПОВЕРНЕННЯ КОШТІВ?
+          У офісі повернення грошових коштів здійснюється готівкою або на платіжну карту в момент повернення товару.
+          Якщо повернення здійснюється поштою, гроші будуть повернуті на платіжну карту або розрахунковий рахунок
+          протягом 2 робочих днів після отримання нами посилки.
+          Зверніться до нас за вказаними контактними даними в розділі "Контакти", і ми з радістю допоможемо вам
+          зробити це швидко й зручно
+
+          ПОВЕРНЕННЯ КНИГ І ДРУКОВАНИХ ВИДАНЬ.
+          Згідно з постановою Кабінету Міністрів України "Про реалізацію окремих положень Закону України «Про захист
+          прав споживачів»" від 19.03.1994 р. № 172, книги та інші друковані видання не підлягають поверненню та
+          обміну. Незважаючи на це, ми завжди намагаємося йти на зустріч, обмінюючи видання з виявленими дефектами (з
+          доставкою за наш рахунок) та видання без дефектів, але без виражених ознак використання (з доставкою за ваш
+          рахунок).
+        </h1>
+      </div>
+
+    </div>
+
+    <div class="whish-list" style="display: none;">
+      список бажань
+    </div>
+
+    <!-- Вікно реєстрації -->
+    <div class="register" style="display: none;">
+      <div class="reg_block">
+        <div class="label">Реєстрація</div>
+        <form id="registerForm" onsubmit="register(event)">
+          <div>
+            <label for="email">Ім'я:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Пошта:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div>
+            <label for="confirmPassword">Повторіть пароль:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+          </div>
+          <button type="submit">Зареєструватись</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Вікно логіну -->
+    <div class="login" style="display: none;">
+      <div class="login_block">
+        <div class="label">Увійти</div>
+        <form id="login_form" onsubmit="login(event)">
+          <div>
+            <label for="email">Пошта:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <button type="submit">Увійти</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Вікно аккаунту -->
+    <div class="user-account" style="display: none;">
+      <div class="user-account-block">
+        <div class="user-card">
+          <div class="id-uname"></div>
+          <div class="email"></div>
+          <div class="money"></div>
+          <div class="acc-level"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bucket" style="display: none;">
+      відро(кошик)
+    </div>
+  </main>
+  <footer>
+
+  </footer>
+
 </body>
 
 </html>

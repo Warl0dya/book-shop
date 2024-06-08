@@ -101,7 +101,7 @@ module.exports = function (args) {
                 }
 
                 if (arg.password == get_user.password) {
-                    db.run(`UPDATE users SET "private_key" = "${arg.user_key}"`)
+                    db.run(`UPDATE users SET "private_key" = "${arg.user_key}" WHERE login = "${get_user.login}"`)
                     resolve({
                         result: 'success',
                         message: `Вітаємо, ${get_user.name}!`,

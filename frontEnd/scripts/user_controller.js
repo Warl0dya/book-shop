@@ -48,6 +48,10 @@ function auto_user_control() {
         console.log(resp.message)
         if (resp.result == 'success') {
             append_login_data(resp.user_data)
+        }else{
+            localStorage.clear()
+            sessionStorage.clear()
+            create_user_key()
         }
     }
 
