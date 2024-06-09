@@ -12,6 +12,7 @@
   <script src="scripts/page_navigator.js" defer></script>
   <script src="scripts/user_controller.js" defer></script>
   <script src="scripts/user_profile.js" defer></script>
+  <script src="scripts/get_items_data.js" defer></script>
 
 </head>
 
@@ -25,7 +26,6 @@
     </div>
     <div class="navbar">
       <div class="link" onclick="navigate('main-page')">Головна</div>
-      <div class="link" onclick="navigate('new-items')">Новинки</div>
       <div class="link" onclick="navigate('catalogue')">Каталог</div>
       <div class="link" onclick="navigate('contacts')">Контакти і доставка</div>
     </div>
@@ -61,59 +61,6 @@
       головна
     </div>
 
-    <div class="new-items" style="display: none;">
-    <div class="main-content">
-      <div class="header">
-        <h1>НОВЕНЬКА МАНҐА - ТІЛЬКИ З РУЧОК АВТОРІВ</h1>
-        <p>ЗНАЙДЕНО ТОВАРІВ: мало</p>
-        <div class="sort-options">
-          <label for="sort">Сортування:</label>
-          <select id="sort">
-            <option value="date">Дата</option>
-            <option value="price">Ціна</option>
-            <option value="popularity">Популярність</option>
-          </select>
-          <div class="view-options">
-            <button class="grid-view active"></button>
-            <button class="list-view"></button>
-          </div>
-        </div>
-      </div>
-      <div class="products">
-        <div class="product-card">
-            <span class="new">new</span>
-          <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
-          <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-          <p class="price">200 грн</p>
-          <div class="buttons">
-            <button class="buy-btn">КУПИТИ</button>
-            <button class="wishlist-btn">&#9825;</button>
-          </div>
-        </div>
-        <div class="product-card">
-            <span class="new">new</span>
-            <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
-            <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-            <p class="price">200 грн</p>
-            <div class="buttons">
-              <button class="buy-btn">КУПИТИ</button>
-              <button class="wishlist-btn">&#9825;</button>
-            </div>
-          </div>
-          <div class="product-card">
-            <span class="new">new</span>
-            <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
-            <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-            <p class="price">200 грн</p>
-            <div class="buttons">
-              <button class="buy-btn">КУПИТИ</button>
-              <button class="wishlist-btn">&#9825;</button>
-            </div>
-          </div>
-      </div>
-    </div>
-</div>
-
     <div class="catalogue" style="display: none;">
       <div class="container">
         <div class="sidebar">
@@ -127,33 +74,16 @@
               <input type="number" id="price-max" name="price-max" max="1000" value="1000">
             </div>
           </div>
-          <div class="filter-section">
-            <h3>Видавництво</h3>
-            <ul>
-              <li><input type="checkbox"> AA</li>
-              <li><input type="checkbox"> AB</li>
-              <li><input type="checkbox"> AC</li>
-              <li><input type="checkbox"> AG</li>
-              <li><input type="checkbox"> AE</li>
-            </ul>
+          <div class="filter-section" id="authors">
+            <h3>Автор</h3>
           </div>
-          <div class="filter-section">
+          <div class="filter-section" id="languages">
             <h3>Мова</h3>
-            <ul>
-              <li><input type="checkbox"> Українська</li>
-              <li><input type="checkbox"> Англійська</li>
-            </ul>
           </div>
-          <div class="filter-section">
-            <h3>Жанр</h3>
-            <ul>
-              <li><input type="checkbox"> Авторський комікс</li>
-              <li><input type="checkbox"> Біографія</li>
-              <li><input type="checkbox"> Бойовик</li>
-              <li><input type="checkbox"> Детектив</li>
-              <li><input type="checkbox"> Для дорослих</li>
-            </ul>
+          <div class="filter-section" id="tags">
+            <h3>Теги</h3>
           </div>
+          <input type="button" value="Прийняти фільтри">
         </div>
         <div class="main-content">
           <div class="header">
@@ -351,6 +281,7 @@
           <div class="email"></div>
           <div class="money"></div>
           <div class="acc-level"></div>
+          <button type="submit">Вийти</button>
         </div>
       </div>
     </div>

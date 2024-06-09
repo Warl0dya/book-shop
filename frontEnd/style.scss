@@ -417,7 +417,47 @@ body {
                 }
             }
         }
+        .user-account{
+          .user-account-block{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 0.2em solid #74cbd8;
+            background-color: aliceblue;
+            border-radius: 1em;
+            padding: 2em 1em;
+            gap: 1.5em;
 
+            .user-card{
+              .id-uname,
+              .email,
+              .money,
+              .acc-level {
+                    width: 20em;
+                    background-color: #c5f2f8;
+                    border: none;
+                    border-bottom: 0.1em solid #000;
+                }
+                button {
+                  background-color: #acf4ff;
+                  border: none;
+                  border-bottom: 0.1em solid black;
+                  font-family: 'Bahnschrift', sans-serif;
+
+                  &:active {
+                      background-color: blueviolet;
+                      border-bottom-color: #00F;
+                  }
+                  &:hover {
+                      background-color: rgb(144, 71, 213);
+                      border-bottom-color: #00F;
+                      transition: 650ms;
+                  }
+              }
+            }
+          }
+        }
         .login {
             .login_block {
                 display: flex;

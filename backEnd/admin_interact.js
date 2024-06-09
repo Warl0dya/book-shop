@@ -16,7 +16,7 @@ module.exports = function (args) {
                 }
             })
         })
-        if (!acc_lvl || acc_lvl < 1) {
+        if (!acc_lvl || acc_lvl <= 1) {
             resolve({
                 result: 'error',
                 message: 'Немає доступу'
@@ -47,14 +47,16 @@ module.exports = function (args) {
                     })
                 })
 
-                db.run(`INSERT INTO items(id,name,author,description,tags,thumbnail,cost,quantity)
-                    VALUES("${id}","${item_data.name}","${item_data.author}","${item_data.description}","${JSON.stringify(item_data.tags)}","${item_data.thumbnail}","${item_data.cost}","${item_data.quantity}")`, (err) => {
+                db.run(`INSERT INTO items(id,name,author,language,tags,thumbnail,cost,quantity,new)
+                    VALUES("${id}","${item_data.name}","${item_data.author}","${item_data.language}",'${JSON.stringify(item_data.tags)}',"${item_data.thumbnail}","${item_data.cost}","${item_data.quantity}","0")`, (err) => {
                         if(err){
                             console.log(err)
+                            resolve({ message: `Помилка додавання: ${err}` })
+                        }else{
+                            resolve({ message: 'Додано' })
                         }
                 })
 
-                resolve({ message: 'ok' })
             }; break;
         }
     })
