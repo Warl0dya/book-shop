@@ -17,4 +17,4 @@ function navigate(page) {
     });
 }
 
-navigate('main-page')
+navigate('catalogue')

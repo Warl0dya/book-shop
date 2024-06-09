@@ -13,6 +13,7 @@
   <script src="scripts/user_controller.js" defer></script>
   <script src="scripts/user_profile.js" defer></script>
   <script src="scripts/get_items_data.js" defer></script>
+  <script src="scripts/items_controller.js" defer></script>
 
 </head>
 
@@ -25,7 +26,6 @@
       </div>
     </div>
     <div class="navbar">
-      <div class="link" onclick="navigate('main-page')">Головна</div>
       <div class="link" onclick="navigate('catalogue')">Каталог</div>
       <div class="link" onclick="navigate('contacts')">Контакти і доставка</div>
     </div>
@@ -33,11 +33,6 @@
       <div class="item" id="user-account" style="display: none;">
         <img src="" alt="" srcset="">
         <div class="name" onclick="navigate('user-account')">Аккаунт</div>
-      </div>
-
-      <div class="item">
-        <img src="" alt="" srcset="">
-        <div class="name" onclick="navigate('whish-list')">Список бажань</div>
       </div>
 
       <div class="item" id="register" style="display: none;">
@@ -57,10 +52,6 @@
     </div>
   </header>
   <main>
-    <div class="main-page" style="display: none;">
-      головна
-    </div>
-
     <div class="catalogue" style="display: none;">
       <div class="container">
         <div class="sidebar">
@@ -83,7 +74,7 @@
           <div class="filter-section" id="tags">
             <h3>Теги</h3>
           </div>
-          <input type="button" value="Прийняти фільтри">
+          <input type="button" value="Прийняти фільтри" onclick="update_items_list()">
         </div>
         <div class="main-content">
           <div class="header">
@@ -103,69 +94,6 @@
             </div>
           </div>
           <div class="products">
-            <div class="product-card">
-              <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
-              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-              <p class="price">200 грн</p>
-              <div class="buttons">
-                <button class="buy-btn">КУПИТИ</button>
-                <button class="wishlist-btn">&#9825;</button>
-              </div>
-            </div>
-            <div class="product-card">
-              <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
-              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-              <p class="price">200 грн</p>
-              <div class="buttons">
-                <button class="buy-btn">КУПИТИ</button>
-                <button class="wishlist-btn">&#9825;</button>
-              </div>
-            </div>
-            <div class="product-card">
-              <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
-              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-              <p class="price">200 грн</p>
-              <div class="buttons">
-                <button class="buy-btn">КУПИТИ</button>
-                <button class="wishlist-btn">&#9825;</button>
-              </div>
-            </div>
-            <div class="product-card">
-              <img src="s/images/naruto.jpg" alt="Book Cover" class="product-image">
-              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-              <p class="price">200 грн</p>
-              <div class="buttons">
-                <button class="buy-btn">КУПИТИ</button>
-                <button class="wishlist-btn">&#9825;</button>
-              </div>
-            </div>
-            <div class="product-card">
-              <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
-              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-              <p class="price">200 грн</p>
-              <div class="buttons">
-                <button class="buy-btn">КУПИТИ</button>
-                <button class="wishlist-btn">&#9825;</button>
-              </div>
-            </div>
-            <div class="product-card">
-              <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
-              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-              <p class="price">200 грн</p>
-              <div class="buttons">
-                <button class="buy-btn">КУПИТИ</button>
-                <button class="wishlist-btn">&#9825;</button>
-              </div>
-            </div>
-            <div class="product-card">
-              <img src="/images/naruto.jpg" alt="naruto" class="product-image">
-              <h3 class="product-title">Моя героїська академія. Том 4 / Boku no Hero Academia</h3>
-              <p class="price">200 грн</p>
-              <div class="buttons">
-                <button class="buy-btn">КУПИТИ</button>
-                <button class="wishlist-btn">&#9825;</button>
-              </div>
-            </div>
 
           </div>
         </div>
@@ -225,10 +153,6 @@
 
     </div>
 
-    <div class="whish-list" style="display: none;">
-      список бажань
-    </div>
-
     <!-- Вікно реєстрації -->
     <div class="register" style="display: none;">
       <div class="reg_block">
@@ -281,7 +205,33 @@
           <div class="email"></div>
           <div class="money"></div>
           <div class="acc-level"></div>
-          <button type="submit">Вийти</button>
+          <div class="whish-list">
+            <h2>Бажане</h2>
+            <div class="card_block">
+              <div class="product-card">
+                <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+                <h3 class="product-title">naruto</h3>
+              </div>
+            </div>
+          </div>
+          <div class="owned">
+            <h2>Ваша манга </h2>
+            <div class="card_block">
+              <div class="product-card">
+                <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+                <h3 class="product-title">naruto</h3>
+              </div>
+              <div class="product-card">
+                <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+                <h3 class="product-title">naruto</h3>
+              </div>
+              <div class="product-card">
+                <img src="/images/naruto.jpg" alt="Book Cover" class="product-image">
+                <h3 class="product-title">naruto</h3>
+              </div>
+            </div>
+          </div>
+          <button type="submit" onclick="unlogin()">Вийти</button>
         </div>
       </div>
     </div>
@@ -291,7 +241,6 @@
     </div>
   </main>
   <footer>
-
   </footer>
 
 </body>

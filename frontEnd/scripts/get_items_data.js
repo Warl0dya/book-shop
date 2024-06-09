@@ -29,8 +29,8 @@ function set_tags() {
             const ch_box = document.createElement('input');
             li.appendChild(ch_box);
             ch_box.type = 'checkbox';
-            ch_box.name = item;
-            ch_box.after(item);
+            ch_box.name = (item.toUpperCase());
+            ch_box.after(item.toUpperCase());
 
             tag_boxes.authors.push(ch_box);
         }

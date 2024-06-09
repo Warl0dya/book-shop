@@ -1,7 +1,6 @@
 async function request(link, type, args) {
     try {
-        let usr = JSON.parse(localStorage.getItem('account'))
-        if (usr == null) usr = { login: 'guest', temp_key: '' }
+        let usr = { temp_key: localStorage.getItem('userKey') }
         const response = await fetch(link, {
             method: 'POST',
             headers: {
@@ -10,7 +9,7 @@ async function request(link, type, args) {
             body: JSON.stringify({
                 type: type,
                 arguments: args,
-                user: { login: usr.login, temp_key: usr.temp_key }
+                user: { temp_key: usr.temp_key }
             }),
         });
         if (!response.ok) {

@@ -12,7 +12,9 @@ async function add_item(event) {
     }
     console.log(thumbnail)
 
-    const tags = get_val_from_id('tags').split(' ')
+    const tags = get_val_from_id('tags').split(' ').forEach(element => {
+        element = element.toLowerCase()
+    });
 
     const data_container = {
         name: (get_val_from_id('name')),

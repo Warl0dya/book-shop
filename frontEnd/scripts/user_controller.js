@@ -48,7 +48,7 @@ function auto_user_control() {
         console.log(resp.message)
         if (resp.result == 'success') {
             append_login_data(resp.user_data)
-        }else{
+        } else {
             localStorage.clear()
             sessionStorage.clear()
             create_user_key()
@@ -89,4 +89,15 @@ async function login(event) {
     const resp = await request('/api/user_interact', 'login', login_data)
     alert(resp.message)
     if (resp.result == 'success') append_login_data(resp.user_data)
+}
+
+async function unlogin() {
+    const resp = await request('/api/user_interact', 'unlogin')
+    alert(resp.message)
+    if (resp.result == 'success') {
+        localStorage.clear()
+        sessionStorage.clear()
+        check_user_status_bar()
+        navigate('catalogue')
+    }
 }

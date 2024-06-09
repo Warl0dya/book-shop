@@ -161,6 +161,16 @@ module.exports = function (args) {
                     }
                 })
             }; break;
+            case 'unlogin': {
+                db.run(`UPDATE users SET "private_key" = "" WHERE "private_key" = "${args.user.temp_key}"`, (err) => {
+                    if (err) {
+                        console.log(err)
+                        resolve({ result: 'error', message: `Помилка деавторизації: ${err}` })
+                    } else {
+                        resolve({ result: 'success', message: `Успішно деавторизовано!` })
+                    }
+                })
+            }; break;
         }
     })
 }
