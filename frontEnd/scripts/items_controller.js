@@ -66,7 +66,8 @@ async function update_fav_list() {
         prd_card.innerHTML = `
                 <img src="/images/${itm.thumbnail}" alt="Book Cover" class="product-image">
                 <h3 class="product-title">${itm.name}</h3>
-                <input type="button" value="X" onclick="rm_fav(${itm.id})">`
+                <input type="button" value="X" onclick="rm_fav(${itm.id})">
+                <input type="button" value="Купити" onclick="if(buy(${itm.id}))rm_fav(${itm.id})">`
 
     }
 }
@@ -123,4 +124,5 @@ async function buy(id) {
     const resp = await request(`/api/items_interact`, 'update_prefs', { type: 'basket', data: basket })
     console.log(resp)
     update_basket_list()
+    if(abl_to_buy.result=='success') return true
 }
