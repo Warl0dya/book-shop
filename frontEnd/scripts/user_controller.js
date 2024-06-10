@@ -19,7 +19,7 @@ function check_user_status_bar() {
 function append_login_data(data) {
     const perm_data = JSON.parse(data.user_data)
     for (const dline in perm_data) {
-        localStorage.setItem(dline, perm_data[dline])
+        localStorage.setItem(dline, JSON.stringify(perm_data[dline]))
     }
 
     sessionStorage.setItem('userData', JSON.stringify({
@@ -89,6 +89,7 @@ async function login(event) {
     const resp = await request('/api/user_interact', 'login', login_data)
     alert(resp.message)
     if (resp.result == 'success') append_login_data(resp.user_data)
+        navigate('user-account')
 }
 
 async function unlogin() {

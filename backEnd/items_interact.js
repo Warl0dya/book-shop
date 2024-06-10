@@ -50,9 +50,103 @@ module.exports = function (args) {
                         console.log(err)
                         resolve(err)
                     } else {
-                        resolve(rows)
+                        let items = rows
+                        for (let item of items) {
+                            item.tags = JSON.parse(item.tags)
+                        }
+                        resolve(items)
                     }
                 })
+            }; break;
+            case 'get_item': {
+                db.get(`SELECT * FROM items WHERE id = "${args.arguments.id}"`, (err, row) => {
+                    if (err) {
+                        console.log(err)
+                        resolve(err)
+                    } else {
+                        resolve(row)
+                    }
+                })
+            }; break;
+            case 'update_prefs': {
+                let udata = await new Promise(resolve => {
+                    db.get(`SELECT * FROM users WHERE "private_key" = "${args.user.temp_key}"`, (err, row) => {
+                        if (err) {
+                            console.log(err)
+                            resolve({
+                                result: 'error',
+                                message: 'Помилка запиту!'
+                            })
+                        } else {
+                            resolve(JSON.parse(row.user_data))
+                        }
+                    })
+                })
+                if (udata.result == 'error') {
+                    resolve(uid)
+                    return
+                }
+
+                udata[args.arguments.type] = args.arguments.data
+
+                db.run(`UPDATE users SET user_data = '${JSON.stringify(udata)}'
+                WHERE "private_key" = "${args.user.temp_key}"`, (err) => {
+                    if (err) {
+                        console.log(err)
+                        resolve(err)
+                    } else {
+                        resolve('ok')
+                    }
+                })
+            }; break;
+            case 'check_buy_ability': {
+                const usr_money = await new Promise(resolve => {
+                    db.get(`SELECT * FROM users WHERE "private_key" = "${args.user.temp_key}"`, (err, row) => {
+                        if (err) {
+                            console.log(err)
+                            resolve({
+                                result: 'error',
+                                message: 'Помилка запиту!'
+                            })
+                        } else {
+                            resolve(row.money)
+                        }
+                    })
+                })
+                if (usr_money.result == 'error') {
+                    resolve(uid)
+                    return
+                }
+
+                const itm_cost = await new Promise(resolve => {
+                    db.get(`SELECT * FROM items WHERE "id" = "${args.arguments.id}"`, (err, row) => {
+                        if (err) {
+                            console.log(err)
+                            resolve({
+                                result: 'error',
+                                message: 'Помилка запиту!'
+                            })
+                        } else {
+                            resolve(row.cost)
+                        }
+                    })
+                })
+                if (itm_cost.result == 'error') {
+                    resolve(uid)
+                    return
+                }
+
+                if(itm_cost>usr_money){
+                    resolve({result:'error',message:'Бракує коштів!'})
+                }else{
+                    db.run(`UPDATE users SET money = "${usr_money-itm_cost}" WHERE "private_key" = "${args.user.temp_key}"`,(err)=>{
+                        if(err){
+                            resolve({result:'error',message:'Помилка придбання!'})
+                        }else{
+                            resolve({result:'success',message:'Успішно придбано'})
+                        }
+                    })
+                }
             }; break;
         }
     })

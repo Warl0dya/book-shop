@@ -21,6 +21,24 @@ body {
     background-color: #f0f0f0;
     padding: 0 1em;
 
+    .link, .name{
+      background-color: #acf4ff;
+      border: none;
+      border-bottom: 0.2em solid black;
+      font-family: 'Bahnschrift', sans-serif;
+
+      &:active {
+        background-color: blueviolet;
+        border-bottom-color: #00F;
+      }
+
+      &:hover {
+        background-color: rgb(144, 71, 213);
+        border-bottom-color: #00F;
+        transition: 650ms;
+      }
+    }
+
     .title {
       display: flex;
       flex-direction: row;
@@ -98,7 +116,7 @@ body {
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin-right: 20px;
-        max-height: 40%;
+        height: 50em;
       }
 
       .filter-section {
@@ -120,7 +138,7 @@ body {
       }
 
       .main-content {
-        width: 75%;
+        width: 75em;
       }
 
       .header {
@@ -153,10 +171,21 @@ body {
       }
 
       .button {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        padding: 10px;
+        background-color: #acf4ff;
+        border: none;
+        border-bottom: 0.2em solid black;
+        font-family: 'Bahnschrift', sans-serif;
+
+        &:active {
+          background-color: blueviolet;
+          border-bottom-color: #00F;
+        }
+
+        &:hover {
+          background-color: rgb(144, 71, 213);
+          border-bottom-color: #00F;
+          transition: 650ms;
+        }
       }
 
       .view-options button {
@@ -182,7 +211,7 @@ body {
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         text-align: center;
-        width: calc(33.333% - 20px);
+        width: 15em;
         position: relative;
       }
 
