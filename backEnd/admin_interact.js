@@ -55,8 +55,8 @@ module.exports = function (args) {
                     })
                 })
 
-                db.run(`INSERT INTO items(id,name,author,language,tags,thumbnail,cost,quantity,new)
-                    VALUES("${id}","${item_data.name}","${item_data.author.toLowerCase()}","${item_data.language.toLowerCase()}",'${JSON.stringify(item_data.tags)}',"${item_data.thumbnail}","${item_data.cost}","${item_data.quantity}","0")`, (err) => {
+                db.run(`INSERT INTO items(id,name,author,language,tags,thumbnail,cost,quantity)
+                    VALUES("${id}","${item_data.name}","${item_data.author.toLowerCase()}","${item_data.language.toLowerCase()}",'${JSON.stringify(item_data.tags)}',"${item_data.thumbnail}","${item_data.cost}","${item_data.quantity}")`, (err) => {
                     if (err) {
                         console.log(err)
                         resolve({ message: `Помилка додавання: ${err}` })
